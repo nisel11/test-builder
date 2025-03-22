@@ -4,15 +4,16 @@ set -e
 
 echo "::group:: ===$(basename "$0")==="
 
-sudo podman pull ghcr.io/nisel11/alt-builder:latest
+cd src/source/container
+sudo podman build -t iso-builder:latest
 sudo podman run -d --privileged \
   --systemd=always \
   --cap-add=ALL \
-  --name alt-builder \
+  --name iso-builder \
   --tmpfs /run \
   --tmpfs /run/lock \
   -v "${GITHUB_WORKSPACE}:/workspace" \
   -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  ghcr.io/nisel11/alt-builder:latest
+  iso-builder:latest
 
 echo "::endgroup::"

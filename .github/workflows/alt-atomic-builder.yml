@@ -18,3 +18,10 @@ jobs:
 
       - name: Run build script
         run: ./main.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: regular-gnome-atomic
+          path: ${{ github.workspace }}/out/
+          if-no-files-found: error

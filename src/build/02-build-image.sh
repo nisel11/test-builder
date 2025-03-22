@@ -4,14 +4,16 @@ set -e
 
 echo "::group:: ===$(basename "$0")==="
 
-# Параметр $1 – имя образа (например, live-rescue.iso)
-sudo podman exec alt-builder su - builder -c "
+sudo podman exec iso-builder su - builder -c "
   cd ~ && \
-  git clone https://github.com/${GITHUB_REPOSITORY} --branch ${GITHUB_REF##*/} mkimage-profiles && \
-  cd mkimage-profiles && \
+  git clone https://github.com/${GITHUB_REPOSITORY} --branch ${GITHUB_REF##*/} test-builder && \
+  cd test-builder/src/source && \
+  git clone https://github.com/altlinux/mkimage-profiles mkimage-profiles && \
+  cp -rf mkimage/* mkimage-profiles && \
+  cd mkimage-profiles
   make \
   IMAGEDIR=\"/workspace/out\" \
   BUILDLOG=\"/workspace/out/build.log\" \
-  ${1}"
+  regular-gnome-atomic.iso"
 
 echo "::endgroup::"
