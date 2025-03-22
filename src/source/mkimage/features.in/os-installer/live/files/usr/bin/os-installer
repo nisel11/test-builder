@@ -1,0 +1,33 @@
+#!/usr/bin/python3
+
+import gettext
+import locale
+import os
+import signal
+import sys
+
+localedir = '/usr/share/locale'
+pkgdatadir = '/usr/share/os-installer'
+VERSION = '0.4.0'
+
+sys.path.insert(1, pkgdatadir)
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+gettext.install('os-installer', localedir)
+
+# Tell GTK and Python to use our translations
+for translation_system in [gettext, locale]:
+    translation_system.bindtextdomain('os-installer', localedir)
+    translation_system.textdomain('os-installer')
+
+if __name__ == '__main__':
+    import gi
+
+    from gi.repository import Gio
+    resource_file = os.path.join(pkgdatadir, 'os-installer.gresource')
+    resource = Gio.Resource.load(resource_file)
+    resource._register()
+    from os_installer.config import config
+    config.set('localedir', localedir)
+
+    from os_installer import main
+    sys.exit(main.main(VERSION))

@@ -1,0 +1,42 @@
+%YAML 1.2
+---
+
+distribution_name: 'Alt Atomic GNOME'
+
+internet_connection_required: yes
+internet_checker_url: 'http://nmcheck.gnome.org/check_network_status.txt'
+
+fixed_language: no
+
+welcome_page:
+    logo    : '/usr/share/icons/hicolor/scalable/apps/altlinux.svg'
+    text    : 'Welcome to Alt Atomic GNOME!'
+    usage   : yes
+
+
+minimum_disk_size: 63
+
+disk_encryption:
+  offered: yes
+  forced: no
+  min_length: 1
+  confirmation: yes
+
+user:
+  request_username: yes
+  provide_autologin: yes
+  min_password_length: 1
+  password_confirmation: yes
+
+skip_user: no
+skip_locale: no
+
+additional_software: []
+
+additional_features: []
+
+failure_help_url: 'https://google.com'
+
+browser_cmd: 'firefox'
+disks_cmd  : 'gnome-disks'
+wifi_cmd   : 'gnome-control-center network'

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.github.p3732.OS-Installer.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>Install an Operating System</description>
+  <description xml:lang="fa">نصب سیستم‌عامل</description>
+  <description xml:lang="vi">Cài đặt Hệ Điều Hành</description>
+  <description xml:lang="da">Installere et Operativsystem</description>
+  <description xml:lang="ar">تثبيت نظام تشغيل</description>
+  <description xml:lang="ur">آپریٹنگ سسٹم انسٹال کریں</description>
+  <description xml:lang="ru">Установить операционную систему</description>
+  <description xml:lang="pt">Instale um Sistema Operacional</description>
+  <description xml:lang="ro">Instalarea unui sistem de operare</description>
+  <description xml:lang="tr">Bir İşletim Sistemi Kurun</description>
+  <description xml:lang="it">Installa un sistema operativo</description>
+  <description xml:lang="cs">Nainstalovat operační systém</description>
+  <description xml:lang="ka">ოპერაციული სისტემის დაყენება</description>
+  <description xml:lang="et">Paigalda opsüsteem</description>
+  <description xml:lang="pl">Zainstaluj system operacyjny</description>
+  <description xml:lang="es">Instalar un Sistema Operativo</description>
+  <description xml:lang="sv">Installera ett oprativsystem</description>
+  <description xml:lang="uk">Встановіть операційну систему</description>
+  <description xml:lang="pt-BR">Instale um Sistema Operacional</description>
+  <description xml:lang="oc">Installar un sistèma operatiu</description>
+  <description xml:lang="nl">Installeer een besturingssysteem</description>
+  <description xml:lang="hr">Instaliraj operacijski sustav</description>
+  <description xml:lang="fr">Installer un système d'exploitation</description>
+  <description xml:lang="de">Ein Betriebssystem installieren</description>
+</component>
