@@ -5,8 +5,8 @@ set -e
 echo "Running scripts"
 
 directories=(
-  "/src/packages"
-  "/src/build"
+  "./src/packages"
+  "./src/build"
 )
 
 run_scripts_in_dir() {
