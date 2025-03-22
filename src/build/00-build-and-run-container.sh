@@ -4,8 +4,7 @@ set -e
 
 echo "::group:: ===$(basename "$0")==="
 
-cd src/source/container
-sudo podman build -t iso-builder:latest
+sudo podman build -t iso-builder:latest "${GITHUB_WORKSPACE}/src/source/container"
 sudo podman run -d --privileged \
   --systemd=always \
   --cap-add=ALL \

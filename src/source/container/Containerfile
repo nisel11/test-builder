@@ -21,6 +21,16 @@ RUN sed -i "s|ConditionVirtualization=!container|#ConditionVirtualization=!conta
 RUN useradd -m -r -s /bin/bash -G wheel builder && \
     echo -e 'builder ALL=(ALL) NOPASSWD: ALL\nroot ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
+# Hasher
+RUN mkdir -p /home/builder/.hasher /home/builder/hasher
+RUN echo -e 'tmpfs /dev/shm tmpfs defaults 0 0\n' >> /etc/hasher-priv/fstab
+RUN echo -e 'allow_ttydev=yes\nallowed_mountpoints=/proc,/dev/pts,/dev/console\nrlimit_soft_cpu=72000\nrlimit_hard_cpu=72600\nwlimit_time_elapsed=468000\nwlimit_time_idle=36000\nwlimit_bytes_written=3355443200\n' >> /etc/hasher-priv/system 
+RUN echo -e "def_repo=/home/builder/hasher\nknown_mountpoints=/dev/pts,/proc,/dev/console\nallowed_mountpoints=/dev/pts,/proc,/dev/console\npackager=\"$(rpm --eval %packager)\"\nexport GCC_USE_CCACHE=1\n" >> /home/builder/.hasher/config
+
+# mkimage
+RUN mkdir -p /home/builder/.mkimage
+RUN echo -e 'CLEAN = 1\nDEBUG = 1\nREPORT = 1\nNO_SYMLINK = 1\n' > /home/builder/.mkimage/profiles.mk
+
 # Add user to hasher groups
 RUN hasher-useradd builder
 
